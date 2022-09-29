@@ -53,6 +53,7 @@ android {
             buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
             buildConfigField "String", "BASE_URL_IMAGES", "\"https://image.tmdb.org/t/p/w500/\""
             buildConfigField "String", "YOUTUBE_URL", "\"https://www.youtube.com/watch?v=\""
+            buildConfigField "String", "API_KEY", API_KEY
         }
         debug{
             minifyEnabled false
@@ -60,6 +61,7 @@ android {
             buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
             buildConfigField "String", "BASE_URL_IMAGES", "\"https://image.tmdb.org/t/p/w500/\""
             buildConfigField "String", "YOUTUBE_URL", "\"https://www.youtube.com/watch?v=\""
+            buildConfigField "String", "API_KEY", API_KEY
         }
     }
     compileOptions {
