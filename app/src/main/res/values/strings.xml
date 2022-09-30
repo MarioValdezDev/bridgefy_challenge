@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">code-challenge</string>
+    <string name="list_movies_frag_title">List Movies</string>
 </resources>
