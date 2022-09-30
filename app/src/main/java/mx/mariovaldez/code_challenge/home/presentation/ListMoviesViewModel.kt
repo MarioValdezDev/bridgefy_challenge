@@ -17,6 +17,8 @@ internal class ListMoviesViewModel @Inject constructor(
     private val getMovies: GetMovies,
 ) : ViewModel() {
 
+    private var allMovies: MutableList<MovieUI> = mutableListOf()
+
     private val _state: MutableStateFlow<State> = MutableStateFlow(State.Loading)
     val state: StateFlow<State> get() = _state
 
@@ -25,16 +27,24 @@ internal class ListMoviesViewModel @Inject constructor(
 
     fun findMovies() {
         viewModelScope.launch {
+            _state.value = State    .Loading
             kotlin.runCatching {
                 getMovies()
             }
                 .onSuccess { movies ->
                     println(movies)
+                    allMovies.addAll(movies)
                     _state.value = State.ShowData(movies)
                 }
                 .onFailure {
                     _state.value = State.ShowError
                 }
+        }
+    }
+
+    fun showItemClicked(moviesPosition: Int) {
+        viewModelScope.launch {
+            _event.emit(Event.NavigateToMovieDetail(allMovies[moviesPosition]))
         }
     }
 
@@ -49,6 +59,6 @@ internal class ListMoviesViewModel @Inject constructor(
 
     sealed class Event {
 
-        object NavigateToMovieDetail : Event()
+        data class NavigateToMovieDetail(val movieUI: MovieUI) : Event()
     }
 }

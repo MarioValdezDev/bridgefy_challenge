@@ -1,6 +1,8 @@
 package mx.mariovaldez.code_challenge.home.presentation.models
 
-internal data class MovieUI(
+import java.io.Serializable
+
+data class MovieUI(
     val adult: Boolean,
     val backdropPath: String,
     val genreIds: List<Int>,
@@ -14,4 +16,4 @@ internal data class MovieUI(
     val video: Boolean,
     val voteAverage: Float,
     val voteCount: Int,
-)
+) : Serializable

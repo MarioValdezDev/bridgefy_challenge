@@ -47,7 +47,7 @@ class HomeActivity : AppCompatActivity() {
     private fun handleNavigation(event: HomeViewModel.Event) {
         val fragment: Fragment = when (event) {
             is HomeViewModel.Event.NavigateToMovieDetail -> {
-                DetailMovieFragment.newInstance()
+                DetailMovieFragment.newInstance(event.movie)
             }
             is HomeViewModel.Event.NavigateToListMovies -> {
                 ListMoviesFragment.newInstance()

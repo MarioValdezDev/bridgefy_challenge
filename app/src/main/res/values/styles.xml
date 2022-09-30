@@ -11,4 +11,9 @@
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
+    <style name="ProgressTheme" parent="@android:style/Widget.ProgressBar.Large">
+        <item name="android:indeterminateDrawable">@drawable/circular_progress_bar</item>
+        <item name="android:animationResolution">33</item>
+    </style>
+
 </resources>

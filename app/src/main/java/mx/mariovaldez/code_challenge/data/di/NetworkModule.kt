@@ -9,8 +9,8 @@ import dagger.hilt.components.SingletonComponent
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 import mx.mariovaldez.code_challenge.BuildConfig
-import mx.mariovaldez.code_challenge.data.remote.api.MarvelApiServiceFactory
-import mx.mariovaldez.code_challenge.data.remote.services.MarvelServices
+import mx.mariovaldez.code_challenge.data.remote.api.MovieApiServiceFactory
+import mx.mariovaldez.code_challenge.data.remote.services.MovieServices
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -58,8 +58,8 @@ internal object NetworkModule {
     @Singleton
     @Provides
     fun provideApiServices(
-        marvelApiServiceFactory: MarvelApiServiceFactory,
-    ): MarvelServices = marvelApiServiceFactory.createApiService(
-        MarvelServices::class.java
+        movieApiServiceFactory: MovieApiServiceFactory,
+    ): MovieServices = movieApiServiceFactory.createApiService(
+        MovieServices::class.java
     )
 }
